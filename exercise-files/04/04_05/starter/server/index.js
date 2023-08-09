@@ -10,6 +10,7 @@
 
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 const { Configuration, OpenAIApi } = require("openai");
 
 const app = express();
@@ -42,7 +43,19 @@ app.post("/posts/insert", (req, res) => {
   res.status(200).json(blogItems);
 });
 
-// apikey  = Your api key
+app.post("/posts/generate", async (req, res) => {
+  const completion = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "system",
+        content: "You are a helpful blogger" + req.body.prompt,
+      },
+    ],
+  });
+  res.status(200).json({ output: completion.data.choices[0].message });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
