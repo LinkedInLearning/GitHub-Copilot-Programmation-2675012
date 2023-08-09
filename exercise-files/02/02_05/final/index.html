@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- add description for SEO purposes -->
+    <meta name="description" content="What is the date and the weather today" />
+    <!-- add a favicon.ico -->
+    <link rel="icon" href="favicon.ico" />
+    <title>What is the date and the weather today</title>
+    <!-- add bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        /*
+      add a light background color for the body
+      remove the margin and the padding of the body
+      add dark background color for the heading
+      change the font family
+      align text to the center
+      add padding to the heading
+      create a card and center perfectly on the x and y axis
+      center the buttons on the x axis
+    */
+        body {
+            margin: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What is the date and the weather today</h1>
+    <div class="card mx-auto" style="width: 18rem;">
+        <div class="card-header">
+            <p id="city">City</p>
+        </div>
+        <div class="card-body">
+            <p id="date">Date</p>
+            <p id="weather">Weather</p>
+            <p id="temperature">Temperature</p>
+
+        </div>
+        <div class="card-footer text-muted">
+            <!-- à compléter dans le script -->
+            <button class="btn btn-primary">Change city</button>
+            <button class="btn btn-primary">Change date</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        function displayDate() {
+            const date = new Date();
+            const options = {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            };
+            document.getElementById("date").innerHTML = date.toLocaleDateString(
+                "en-GB",
+                options
+            );
+        }
+
+        function displayWeatherData() {
+
+            const apiKey = "24a228879c65cc6ddf5d46f61ff2e892";
+            const city = "Paris";
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+            fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    const weather = data.weather[0].description;
+                    const temperature = (data.main.temp - 273.15).toFixed(2);
+                    const city = data.name;
+
+                    document.getElementById("weather").innerHTML = weather;
+                    document.getElementById("city").innerHTML = city;
+                    document.getElementById("temperature").innerHTML =
+                        temperature + "°C";
+                })
+                .catch((error) => console.error(error));
+        }
+
+        displayDate();
+        displayWeatherData();
+    </script>
+</body>
+
+</html>

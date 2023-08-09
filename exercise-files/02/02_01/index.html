@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is the date and the weather today</title>
+  <style>
+    /* display a dark background for the heading
+      align the heading to the center
+    */
+    h1 {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>What is the date and the weather today</h1>
+  <p id="date">Date</p>
+  <p id="weather">Weather</p>
+  <script>
+    // display the date in letters
+    const date = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('date').innerHTML = date.toLocaleDateString('en-GB', options);
+  </script>
+</body>
+
+</html>

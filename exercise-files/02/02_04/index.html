@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is the date and the weather today</title>
+  <style>
+    /*
+      display a dark background for the heading
+      display the heading in white
+      add padding to the heading
+      remove the margin of the body
+      align the heading to the center
+      increase the font size of the heading to 2rem
+      increase the font size of the paragraph to 1.5rem
+      align the paragraph to the center
+    */
+    body {
+      margin: 0;
+    }
+
+    h1 {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>What is the date and the weather today</h1>
+  <p id="date">Date</p>
+  <p id="weather">Weather</p>
+  <p id="temperature">Temperature</p>
+
+
+  <script>
+    // display the date in letters
+    function displayDate() {
+      const date = new Date();
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      document.getElementById("date").innerHTML = date.toLocaleDateString(
+        "en-GB",
+        options
+      );
+    }
+
+    // display the weather
+    function displayWeather() {
+      const sunny = "sunny ☀️";
+      const rainy = "rainy 🌧";
+      const cloudy = "cloudy ☁️";
+      const windy = "windy 🌬";
+      const snowy = "snowy ❄️";
+      const weather = rainy;
+      document.getElementById("weather").innerHTML = weather;
+    }
+
+    function displayWeatherData() {
+      const apiKey = "24a228879c65cc6ddf5d46f61ff2e892";
+      const city = "London";
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          const weather = data.weather[0].description;
+          const temperature = (data.main.temp - 273.15).toFixed(2);
+
+          document.getElementById("weather").innerHTML = weather;
+          document.getElementById("temperature").innerHTML = temperature + "°C";
+        })
+        .catch((error) => console.error(error));
+    }
+
+    displayDate();
+    displayWeatherData();
+  </script>
+</body>
+
+</html>
