@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 function App() {
+  const inputRef = useRef();
+  const textareaRef = useRef();
   const [posts, setPosts] = useState([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -16,7 +18,13 @@ function App() {
       body: JSON.stringify(newPost),
     })
       .then((response) => response.json())
-      .then(setPosts)
+      .then((data) => {
+        setPosts(data);
+        setTitle("");
+        setContent("");
+        inputRef.current.value = "";
+        textareaRef.current.value = "";
+      })
       .catch((error) => console.error(error));
   };
 
@@ -28,7 +36,11 @@ function App() {
       body: JSON.stringify({ prompt: title }),
     })
       .then((response) => response.json())
-      .then(setPosts)
+      .then((data) => data.content)
+      .then((content) => {
+        setPosts([...posts, { title, content }]);
+        startLoading(false);
+      })
       .catch((error) => console.error(error));
   };
 
@@ -44,6 +56,7 @@ function App() {
 
       <form onSubmit={handleSubmit}>
         <input
+          ref={inputRef}
           className="form-control"
           type="text"
           value={title}
@@ -52,6 +65,7 @@ function App() {
         />{" "}
         <br />
         <textarea
+          ref={textareaRef}
           className="form-control"
           value={content}
           placeholder="content.."
@@ -71,7 +85,7 @@ function App() {
           Generate
         </button>
       </form>
-
+      {isLoading && <p>Loading...</p>}
       <ul>
         {posts.map((post) => (
           <li key={post.id}>

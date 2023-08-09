@@ -53,7 +53,7 @@ app.post("/posts/generate", async (req, res) => {
       },
     ],
   });
-  res.status(200).json({ output: completion.data.choices[0].message });
+  res.status(200).json(completion.data.choices[0].message);
 });
 
 app.listen(port, () => {
