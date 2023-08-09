@@ -15,6 +15,9 @@ const app = express();
 app.use(cors());
 const port = 8080;
 
+// I need to parse objects in JSON format
+app.use(express.json());
+
 const blogItems = [];
 
 app.get("/", (req, res) => {
