@@ -16,13 +16,10 @@ const app = express();
 app.use(cors());
 const port = 8080;
 
-// configure openai
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
-
-// api-key : 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
 
 // I need to parse objects in JSON format
 app.use(express.json());
@@ -45,6 +42,7 @@ app.post("/posts/insert", (req, res) => {
   res.status(200).json(blogItems);
 });
 
+// apikey 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
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
