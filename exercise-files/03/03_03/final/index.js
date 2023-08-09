@@ -21,6 +21,18 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/posts", (req, res) => {
+  res.status(200).json(blogItems);
+});
+
+app.post("/posts/insert", (req, res) => {
+  blogItems.push({
+    id: Number(new Date()),
+    ...req.body,
+  });
+  res.status(200).json(blogItems);
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
