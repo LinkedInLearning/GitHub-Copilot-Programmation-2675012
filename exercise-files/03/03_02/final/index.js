@@ -1,6 +1,6 @@
 /**
- * create a server with node and express
  * import express
+ * create a server with node and express
  * create an instance of express
  * create a array of blog items objects with title and content
  * create a port
