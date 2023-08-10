@@ -1,38 +1,19 @@
-.App {
-  text-align: center;
+/*
+add a light background color to the body
+ create container for the app with a max width of 60%
+ remove margin from list items
+*/
+
+body {
+  background-color: #f4f4f4;
+}
+.blog-container {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.blog-container ul {
+  list-style: none;
+  padding: 0;
 }

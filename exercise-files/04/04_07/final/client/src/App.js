@@ -51,8 +51,8 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
-      <h1>Blog Posts</h1>
+    <div className="blog-container">
+      <h1 className="mt-5">Blog Posts</h1>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -85,13 +85,16 @@ function App() {
           Generate
         </button>
       </form>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <p className="my-3">Loading...</p>}
+      {/* use boostrap to create a card */}
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-          </li>
+          <div className="card mt-3">
+            <div className="card-body">
+              <h5 className="card-title">{post.title}</h5>
+              <p className="card-text">{post.content}</p>
+            </div>
+          </div>
         ))}
       </ul>
     </div>
