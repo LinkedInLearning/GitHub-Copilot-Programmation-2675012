@@ -37,6 +37,7 @@ app.get("/posts", (req, res) => {
 
 app.post("/posts/insert", (req, res) => {
   blogItems.push({
+    created_at: new Date().toLocaleDateString(),
     id: Number(new Date()),
     ...req.body,
   });
@@ -53,7 +54,14 @@ app.post("/posts/generate", async (req, res) => {
       },
     ],
   });
-  res.status(200).json(completion.data.choices[0].message);
+
+  blogItems.push({
+    created_at: new Date().toLocaleDateString(),
+    id: Number(new Date()),
+    title: req.body.prompt,
+    content: completion.data.choices[0].message.content,
+  });
+  res.status(200).json(blogItems);
 });
 
 app.listen(port, () => {

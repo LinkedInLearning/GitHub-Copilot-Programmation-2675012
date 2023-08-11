@@ -1,7 +1,8 @@
 /*
-add a light background color to the body
+ add a light background color to the body
  create container for the app with a max width of 60%
  remove margin from list items
+ add scroll to list items
 */
 
 body {
@@ -17,3 +18,9 @@ body {
   list-style: none;
   padding: 0;
 }
+
+.scroll {
+  overflow-y: scroll;
+  height: 400px;
+}
+
