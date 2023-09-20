@@ -44,8 +44,8 @@ La branche master correspond au code à la fin de la formation.
  Retrouvez mes autres formations sur [LinkedIn Learning](https://www.linkedin.com/learning/instructors/sandy-ludosky).
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
-[lil-course-url]: https://www.linkedin.com
-[lil-thumbnail-url]: https:
-[lil-URL-trainer]: https://
+[lil-course-url]: https://www.linkedin.com/learning/github-copilot-programmer-en-binome-avec-l-ia
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/D560DAQGQauwPSTW34g/learning-public-crop_675_1200/0/1695210612532?e=2147483647&v=beta&t=QBJCfdoY6LCwNcou8WKtJkG_zAqjwnKmjPo-amxBWo4
+[lil-URL-trainer]: https://www.linkedin.com/learning/instructors/sandy-ludosky
 
 [1]: # (End of FR-Instruction ###############################################################################################)
