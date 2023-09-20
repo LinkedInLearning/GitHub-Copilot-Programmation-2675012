@@ -6,7 +6,7 @@ Ce dossier Repository est lié au cours `GitHub Copilot : Programmer en binôme 
 
 Ce cours est intégré à GitHub Codespaces, un environnement de développement instantané « dans le nuage » qui offre toutes les fonctionnalités de votre IDE préféré sans nécessiter de configuration sur une machine locale. Avec Codespaces, vous pouvez vous exercer à partir de n'importe quelle machine, à tout moment, tout en utilisant un outil que vous êtes susceptible de rencontrer sur votre lieu de travail. Consultez la vidéo "Utilisation de Codespaces GitHub dans le cadre de ce cours" pour savoir comment démarrer.
 
-DESCRIPTION DE LA FORMATION
+Les outils de l'intelligence artificielle (IA, ou AI) évoluent très vite et n'ont pas fini de vous impressionner avec leurs capacités à imiter le comportement des humains. Avis aux développeurs, découvrez cette formation sur GitHub Copilot. Vous allez prendre en main cet outil intelligent, paramétré par des millions de lignes de code et capable d'examiner vos fichiers, de corriger les bogues et de coder à votre place. Sandy Ludosky, experte en développement web, vous aide à dépasser vos objectifs de travail en un temps accéléré, aux côtés de votre assistant Copilot, pour naviguer vers le développement du futur.
 
 ## Instructions
 
